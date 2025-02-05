@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import ProductCard from "./ProductCard";
 export const API_VERSION = "v1";
-export const API_BASE_URL = `http://localhost:5205/api/${API_VERSION}`;
+export const API_BASE_URL = `http://localhost:5300/api/${API_VERSION}`;
 
 
 function SearchResults() {

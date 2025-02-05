@@ -9,7 +9,7 @@ function ManageOrders({ user }) {
   const fetchOrders = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://localhost:5205/api/${API_VERSION}/order`, {
+      const response = await fetch(`http://localhost:5300/api/${API_VERSION}/order`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -31,7 +31,7 @@ function ManageOrders({ user }) {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `http://localhost:5205/api/${API_VERSION}/order/${orderStatus.orderId}/status`,
+        `http://localhost:5300/api/${API_VERSION}/order/${orderStatus.orderId}/status`,
         {
           method: "PUT",
           headers: {

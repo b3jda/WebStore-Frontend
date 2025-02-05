@@ -39,18 +39,18 @@ function ManageReports() {
 
   const handleDailyReport = () => {
     const date = formatDate(new Date()); // Get only the date part
-    const endpoint = `http://localhost:5205/api/${API_VERSION}/report/daily?date=${date}`;
+    const endpoint = `http://localhost:5300/api/${API_VERSION}/report/daily?date=${date}`;
     fetchReport(endpoint);
   };
 
-  // Handle Monthly Report for a specific month and year
+  
   const handleMonthlyReport = (month, year) => {
-    const endpoint = `http://localhost:5205/api/${API_VERSION}/report/monthly?month=${month}&year=${year}`;
+    const endpoint = `http://localhost:5300/api/${API_VERSION}/report/monthly?month=${month}&year=${year}`;
     fetchReport(endpoint);
   };
 
   const handleTopSellingReport = (count) => {
-    const endpoint = `http://localhost:5205/api/${API_VERSION}/report/top-selling?count=${count}`;
+    const endpoint = `http://localhost:5300/api/${API_VERSION}/report/top-selling?count=${count}`;
     fetchReport(endpoint);
   };
 
@@ -74,7 +74,7 @@ function ManageReports() {
 
         <button
           className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition duration-300 ease-in-out transform hover:scale-105"
-          onClick={() => handleMonthlyReport(2, 2025)} // February 2025
+          onClick={() => handleMonthlyReport(2, 2025)} 
           disabled={isLoading}
         >
           {isLoading ? "Generating..." : "Generate Monthly Report (Feb 2025)"}

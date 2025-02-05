@@ -8,6 +8,9 @@ import trousersImage from "../assets/trousers.jpg";
 import sneakersImage from "../assets/uggs.jpg";
 import jacketImage from "../assets/jacket.jpg";
 import sneakerssImage from "../assets/sneakers.jpg";
+import blazerImage from "../assets/blazer.jpg"
+import sambaImage from "../assets/samba.jpg"
+import blankImage from "../assets/blank.jpg"
 
 function ProductCard({ product, onUpdateProduct }) {
   const { addToCart } = useCart();
@@ -21,7 +24,10 @@ function ProductCard({ product, onUpdateProduct }) {
     if (name.toLowerCase().includes("trousers")) return trousersImage;
     if (name.toLowerCase().includes("uggs")) return sneakersImage;
     if (name.toLowerCase().includes("sneakers")) return sneakerssImage;
-    return jacketImage;
+    if (name.toLowerCase().includes("jacket")) return jacketImage;
+    if (name.toLowerCase().includes("blazer")) return blazerImage;
+    if (name.toLowerCase().includes("samba")) return sambaImage;
+    return blankImage;
   };
    const API_VERSION = "v1";
   // Fetch updated quantity when the component loads
@@ -29,7 +35,7 @@ function ProductCard({ product, onUpdateProduct }) {
     const fetchProductQuantity = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5205/api/${API_VERSION}/product/${product.id}/quantity`
+          `http://localhost:5300/api/${API_VERSION}/product/${product.id}/quantity`
         );
         if (!response.ok) {
           throw new Error(`Failed to fetch product quantity for ID: ${product.id}`);

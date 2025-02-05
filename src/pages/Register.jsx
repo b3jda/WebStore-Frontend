@@ -18,7 +18,7 @@ function Register() {
   };
 
   // Backend API Base URL
-  const API_BASE_URL = "http://localhost:5205/api/Auth";
+  const API_BASE_URL = "http://localhost:5300/api/Auth";
 
   // Handle Form Submission
   const handleSubmit = async (e) => {
