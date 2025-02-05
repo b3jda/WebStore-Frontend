@@ -9,12 +9,15 @@ import trousersImage from "../assets/trousers.jpg";
 import sneakersImage from "../assets/uggs.jpg";
 import jacketImage from "../assets/jacket.jpg";
 import sneakerssImage from "../assets/sneakers.jpg";
+import blazerImage from "../assets/blazer.jpg"
+import sambaImage from "../assets/samba.jpg"
+import blankImage from "../assets/blank.jpg"
 
 function CartPage() {
   const { cart, removeFromCart, addToCart, decreaseQuantity, clearCart } = useCart();
   const { getUserId } = useAuth();
-  const [isPlacingOrder, setIsPlacingOrder] = useState(false); // Loading state
-  const [orderPlaced, setOrderPlaced] = useState(false); // Success state
+  const [isPlacingOrder, setIsPlacingOrder] = useState(false); 
+  const [orderPlaced, setOrderPlaced] = useState(false); 
 
   // Function to get image based on product name
   const getImage = (name) => {
@@ -22,29 +25,32 @@ function CartPage() {
     if (name.toLowerCase().includes("trousers")) return trousersImage;
     if (name.toLowerCase().includes("uggs")) return sneakersImage;
     if (name.toLowerCase().includes("sneakers")) return sneakerssImage;
-    return jacketImage;
+    if (name.toLowerCase().includes("jacket")) return jacketImage;
+    if (name.toLowerCase().includes("blazer")) return blazerImage;
+    if (name.toLowerCase().includes("samba")) return sambaImage;
+    return blankImage;
   };
 
-  // Calculate the total price of all items in the cart
+  
   const totalPrice = cart.reduce((total, product) => total + product.price * product.quantity, 0);
 
-  // Function to handle placing an order
-  const API_VERSION = "v1"; // Set API version
+  
+  const API_VERSION = "v1"; 
 
 const handleOrder = async () => {
-    const userId = getUserId(); // Dynamically fetch user ID
-    const token = localStorage.getItem("token"); // Retrieve the token from localStorage
+    const userId = getUserId(); 
+    const token = localStorage.getItem("token"); 
 
     if (!userId) {
       alert("User is not authenticated!");
       return;
     }
 
-    setIsPlacingOrder(true); // Show loading state
+    setIsPlacingOrder(true); 
 
     const orderData = {
       orderDate: new Date().toISOString(),
-      userId, // Use the dynamically fetched user ID
+      userId, 
       orderItems: cart.map((product) => ({
         productId: product.id,
         quantity: product.quantity,
@@ -53,11 +59,11 @@ const handleOrder = async () => {
     };
 
     try {
-      const response = await fetch(`http://localhost:5205/api/${API_VERSION}/order`, {
+      const response = await fetch(`http://localhost:5300/api/${API_VERSION}/order`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // Add Bearer token for authentication
+          Authorization: `Bearer ${token}`, 
         },
         body: JSON.stringify(orderData),
       });
@@ -66,10 +72,10 @@ const handleOrder = async () => {
         throw new Error("Failed to place order.");
       }
 
-      // Clear the cart after successful order placement
+      
       clearCart();
       setIsPlacingOrder(false);
-      setOrderPlaced(true); // Show success message
+      setOrderPlaced(true); 
 
       // Hide success message after 3 seconds
       setTimeout(() => setOrderPlaced(false), 3000);

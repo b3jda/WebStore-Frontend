@@ -62,6 +62,8 @@ function Header() {
               <option value="Nike">Nike</option>
               <option value="TommyHilfiger">TommyHilfiger</option>
               <option value="Zara">Zara</option>
+              <option value="Burberry">Burberry</option>
+              <option value="Adidas">Adidas</option>
             </select>
           </div>
 

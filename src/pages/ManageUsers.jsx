@@ -6,7 +6,7 @@ function ManageUsers() {
   const { user, hasRole, getToken } = useAuth();
 
   const API_VERSION = "v1";
-  const API_BASE_URL = `http://localhost:5205/api/${API_VERSION}`;
+  const API_BASE_URL = `http://localhost:5300/api/${API_VERSION}`;
   // Fetch all users
   const fetchUsers = async () => {
     try {

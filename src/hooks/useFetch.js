@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const API_BASE_URL = "http://localhost:5205/api"; // Backend URL
+const API_BASE_URL = "http://localhost:5300/api"; // Backend URL
 
 const useFetch = (endpoint, options = {}) => {
   const [data, setData] = useState(null);

@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:5205/api"; // Backend URL
+const API_BASE_URL = "http://localhost:5300/api"; 
 
 export const fetchData = async (endpoint) => {
   try {
@@ -7,7 +7,7 @@ export const fetchData = async (endpoint) => {
       headers: {
         "Content-Type": "application/json",
       },
-      mode: "cors", // Ensure this is included to handle CORS requests
+      mode: "cors", 
     });
 
     if (!response.ok) {

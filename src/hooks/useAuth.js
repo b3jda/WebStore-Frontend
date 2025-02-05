@@ -13,7 +13,7 @@ function useAuth() {
   });
 
   // Backend API base URL
-  const API_BASE_URL = "http://localhost:5205/api/Auth";
+  const API_BASE_URL = "http://localhost:5300/api/Auth";
 
   // Function to handle login
   const login = async (email, password) => {

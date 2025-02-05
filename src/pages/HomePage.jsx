@@ -3,7 +3,7 @@ import ProductCard from "../components/ProductCard";
 import PriceRangeInput from "../components/PriceRangeInput";
 import DiscountFilter from "../components/DiscountFilter";
 
-const API_BASE_URL = "http://localhost:5205/api/v1/Product";
+const API_BASE_URL = "http://localhost:5300/api/v1/Product";
 
 function HomePage() {
   const [products, setProducts] = useState([]);
